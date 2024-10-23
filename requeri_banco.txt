@@ -1,0 +1,22 @@
+CREATE TABLE suplementos(
+    tipo varchar(50),
+    marca varchar (50),
+    valor float,
+    quantidade int,
+    ativo  bool,
+    codS serial primary key
+)
+
+CREATE TABLE usuario(
+	username varchar (50),
+	senha int,
+	codU serial primary key
+)
+
+
+CREATE TABLE compradores(
+    codS int,
+    quantidade int,
+    codC serial primary key,
+    constraint fk_comprador foreign key (codS) references suplementos (codS)
+)
